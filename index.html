@@ -2,35 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Image PNG</title>
+    <title>Noor Islamic</title>
     
     <link rel="icon" type="image/png" href="icon.png">
-    <link rel="shortcut icon" type="image/png" href="icon.png">
-    <link rel="apple-touch-icon" href="icon.png">
-    <meta property="og:image" content="icon.png">
-
     <style>
-        /* Automatically centers the image on a dark screen for visitors */
         body {
             margin: 0;
             background: #0e0e0e;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            width: 100vw;
-            overflow: hidden;
+            color: white;
+            font-family: sans-serif;
         }
-        img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+        img { max-width: 200px; margin-bottom: 20px; }
+        button {
+            padding: 10px 20px;
+            background: #ff4757;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
 
-    <img src="icon.png" alt="Image PNG">
+    <img src="icon.png" alt="Logo">
+    <p>Redirecting in <span id="timer">3</span>s...</p>
+    <button onclick="stopRedirect()">Stop Redirect</button>
 
+    <script>
+        let timeLeft = 3;
+        const targetUrl = 'androidapp://com.mcc.noor'; // Change this
+        
+        const timerElement = document.getElementById('timer');
+        
+        const timer = setInterval(() => {
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                window.location.href = targetUrl;
+            }
+        }, 1000);
+
+        function stopRedirect() {
+            clearInterval(timer);
+            document.querySelector('p').textContent = "Redirect cancelled.";
+            document.querySelector('button').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
