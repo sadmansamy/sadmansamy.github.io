@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nidw</title>
+    
+    <link rel="icon" type="image/png" href="icon.png">
+    <style>
+        body {
+            margin: 0;
+            background: #0e0e0e;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            font-family: sans-serif;
+        }
+        img { max-width: 200px; margin-bottom: 20px; }
+        button {
+            padding: 10px 20px;
+            background: #ff4757;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="icon.png" alt="Logo">
+    <p>Redirecting in <span id="timer">3</span>s...</p>
+    <button onclick="stopRedirect()">Stop Redirect</button>
+
+    <script>
+        let timeLeft = 3;
+        const targetUrl = 'www.services.nidw.gov.bd'; // Change this
+        
+        const timerElement = document.getElementById('timer');
+        
+        const timer = setInterval(() => {
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                window.location.href = targetUrl;
+            }
+        }, 1000);
+
+        function stopRedirect() {
+            clearInterval(timer);
+            document.querySelector('p').textContent = "Redirect cancelled.";
+            document.querySelector('button').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
