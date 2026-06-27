@@ -65,10 +65,12 @@
             createImg("https://samy.nav.bd/img/" + i + ".png", samyGallery);
         }
 
-        // 2. Samy Nav JSON
-        fetch('img.json').then(r => r.json()).then(data => {
-            data.forEach(fileName => createImg("https://samy.nav.bd/img/" + fileName, samyGallery));
-        }).catch(() => {});
+            // 2. Manual list of images on Samy Bav
+    const manualImages = ["bing.webp", "brave.webp", "duckduckgo.webp", "google.webp", "sflix.film.png", "6t.png", "7e.png", "8r.png", "9c.png", "1d0.png"];
+    
+    manualImages.forEach(fileName => {
+        createImg("https://samy.nav.bd/img/" + fileName, samyGallery);
+    });
 
         // 3. Manual BWI Subdomains
         const subs = ["dbbl","nidw","noor","prottoyon","pi","steadfast","wechat","banglacall","weblink","premium","icc","icon","anilab","f",
