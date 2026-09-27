@@ -39,7 +39,7 @@
         <a href="https://qsamy.pages.dev" class="modern-btn" target="_blank">qsamy.pages.dev →</a>
     </div>
 
-    <h2></h2>
+    <h2>Images</h2>
     <div class="gallery" id="samyGallery"></div>
 
     <h2>Favicon</h2>
@@ -69,12 +69,26 @@
             container.appendChild(img);
         }
 
-        // Load Samy Images
-        for(let i = 1; i <= 200; i++) createImg(`https://sadmansamy.github.io/${i}.png`, samyGallery);
-        ["bing.webp", "brave.webp", "duckduckgo.webp", "google.webp", "sflix.film.png", "6t.png", "7e.png", "8r.png", "9c.png", "1d0.png"].forEach(f => https://sadmansamy.github.io/" + f, samyGallery));
+        // Pattern 1: Load Samy Numbered Images (1.png - 200.png)
+        for(let i = 1; i <= 200; i++) {
+            createImg(`https://sadmansamy.github.io/${i}.png`, samyGallery);
+        }
 
-        // Load Bitw Subdomains
-        const subs = ["dbbl","nidw","noor","prottoyon","pi","steadfast","wechat","banglacall","weblink","premium","icc","icon","anilab","fxyxcg","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","aa","bb","cc","dd","ee","ff","gg","hh","ii","jj","kk","ll","mm","nn","oo","pp","qq","rr","ss","tt","uu","vv","ww","xx","yy","zz"];
+        // Pattern 2: Load Samy Named Images
+        const namedFiles = [
+            "bing.webp", "brave.webp", "duckduckgo.webp", "google.webp", 
+            "sflix.film.png", "6t.png", "7e.png", "8r.png", "9c.png", "1d0.png"
+        ];
+        namedFiles.forEach(f => createImg(`https://sadmansamy.github.io/${f}`, samyGallery));
+
+        // Pattern 3: Load Bitw Subdomain Favicons
+        const subs = [
+            "dbbl","nidw","noor","prottoyon","pi","steadfast","wechat","banglacall",
+            "weblink","premium","icc","icon","anilab","fxyxcg","a","b","c","d","e",
+            "f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w",
+            "x","y","z","aa","bb","cc","dd","ee","ff","gg","hh","ii","jj","kk","ll",
+            "mm","nn","oo","pp","qq","rr","ss","tt","uu","vv","ww","xx","yy","zz"
+        ];
         subs.forEach(s => createImg(`https://${s}.bitw.pages.dev/icon.png`, bwiGallery));
 
         function copyData() {
